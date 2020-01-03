@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   wordpress:
-    container_name: wp-9  
+    container_name: wp-1  
     image: wordpress:latest
     restart: "no"
     ports:
@@ -11,7 +11,6 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       # copiar plugins 1 a 1 
-      - ./mis-plugins/lab-custom-login/:/var/www/html/wp-content/plugins/lab-custom-login  
       - ./mis-plugins/version-info/:/var/www/html/wp-content/plugins/version-info  
       - ./mis-plugins/very-simple-contact-form/:/var/www/html/wp-content/plugins/very-simple-contact-form 
       - ./mis-plugins/wpvivid-backuprestore/:/var/www/html/wp-content/plugins/wpvivid-backuprestore 
@@ -25,7 +24,7 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
                 
   db:
-    container_name: mysql-9  
+    container_name: mysql-1  
     image: mysql:8.0.16
     command: --default-authentication-plugin=mysql_native_password  
     restart: "no" 
@@ -39,7 +38,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}  
 
   phpmyadmin:
-    container_name: phpmyadmin-9      
+    container_name: phpmyadmin-1      
     depends_on:      
     - db    
     image: phpmyadmin/phpmyadmin    
