@@ -9,14 +9,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./wordpress:/var/www/html
-      # copiar plugins 1 a 1 
-      - ./mis-plugins/version-info/:/var/www/html/wp-content/plugins/version-info  
-      - ./mis-plugins/very-simple-contact-form/:/var/www/html/wp-content/plugins/very-simple-contact-form 
-      - ./mis-plugins/wpvivid-backuprestore/:/var/www/html/wp-content/plugins/wpvivid-backuprestore 
-      # copiar themes 1 a 1             
-      - ./mis-temas/generatepress/:/var/www/html/wp-content/themes/generatepress  
-      - ./mis-temas/twentytwelve/:/var/www/html/wp-content/themes/twentytwelve       
+      - ./wordpress:/var/www/html   
     env_file: .env
     environment:
       WORDPRESS_DB_HOST: db:3306
